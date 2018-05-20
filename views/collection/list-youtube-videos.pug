@@ -1,0 +1,10 @@
+extends ../master
+
+block content
+    each message, index in list
+        if(message.length === 1)
+            h6(style="color: red;")!= message[0]
+        else 
+            each entry in message 
+                h6(style="display: block;")!= entry
+                

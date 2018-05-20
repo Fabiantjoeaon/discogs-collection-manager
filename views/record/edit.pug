@@ -1,0 +1,14 @@
+extends ../master 
+
+block content
+    
+    h3!=`Edit: ${record.artists[0]} - ${record.title}`
+    form(method="POST" action=`/record/${record_id}/edit`)
+        each track, index in record.tracks 
+            h5!=`${track.position} - ${track.title}`
+            input(type="hidden" name=`track-${index}` value=track._id)
+            input(type="text" name=`key-${index}` value=track.key ? getKey(track.key) : null placeholder="key")
+            input(type="text" name=`bpm-${index}` value=track.bpm ? track.bpm : null placeholder="bpm")
+            input(type="text" name=`energyLevel-${index}` value=track.energyLevel ? track.energyLevel : null placeholder="energyLevel")
+    
+        input(type="submit" value="SUBMIT" name='submit')

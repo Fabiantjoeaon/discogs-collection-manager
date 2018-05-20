@@ -1,0 +1,33 @@
+extends ../master
+
+block content
+    a.index-link(href=`/collections/${collection.username}/fill`) (Re)Fill collection
+    a.index-link(href=`/collections/${collection.username}/list-youtube-videos`) Show youtube list
+    br
+
+    .flex-container
+        each record in records 
+            .record
+                .record-top
+                    .record-image(style=`background-image:url("${record.image}");`)
+                    h5!= `${record.artists[0]} - ${record.title}`
+                    a(href=`/record/${record._id}/edit`) EDIT
+                .record-tracks
+                    each track in record.tracks 
+                        .track
+                            .track-meta
+                                strong!=`${track.position} `
+                                span!=`${track.title} `
+                            
+                            .track-meta(style=track.key ? "background-color: papayawhip;" : null)
+                                if (track.key) 
+                                    span!=`${track.key} (${getKey(track.key)}) `
+                                if (track.bpm) 
+                                    span!=`${track.bpm} `
+                                if (track.duration)
+                                    span!=`${track.duration}`
+                                if (track.energyLevel) 
+                                    span!=`${track.energyLevel} `
+                                
+               
+        

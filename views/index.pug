@@ -1,0 +1,6 @@
+extends ./master
+
+block content
+    each collection in collections 
+        a(href=`/collections/${collection.username}`)!= collection.username
+    

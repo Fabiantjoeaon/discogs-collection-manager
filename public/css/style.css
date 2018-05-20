@@ -1,0 +1,38 @@
+* {
+    font-family: "Crimson Text", sans-serif;
+}
+.index-link {
+    color: #000;
+    display: block;
+}
+
+.flex-container {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.record {
+    width: calc(100% / 5);
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.record-top {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+}
+.record-image {
+    width: 70px;
+    height: 70px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 10px;
+}
+
+.track {
+    margin-bottom: 10px;
+}
