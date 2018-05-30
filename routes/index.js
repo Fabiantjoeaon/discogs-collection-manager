@@ -8,7 +8,11 @@ const {
     updateCollection
 } = require("../services/fillRecordsFromDiscogsService");
 const { listMissingVideos } = require("../services/youtubeListingService");
-const { getCamelotIndex } = require("../helpers/camelotWheel");
+const {
+    getCamelotIndex,
+    camelotWheel,
+    getKey
+} = require("../helpers/camelotWheel");
 
 const router = express.Router();
 
@@ -60,11 +64,18 @@ router.post("/record/:id/edit", async (req, res) => {
         const bpm = req.body[`bpm-${index}`];
         const energyLevel = req.body[`energyLevel-${index}`];
 
+        const isCamelotIndex = Object.keys(camelotWheel).includes(key);
+        // const isKey = Object.entries(camelotWheel).includes(key);
+
         await Track.findOneAndUpdate(
             { _id: req.body[`track-${index}`] },
             {
                 $set: {
-                    key: key ? getCamelotIndex(key) : null,
+                    key: key
+                        ? isCamelotIndex
+                            ? key
+                            : getCamelotIndex(key)
+                        : null,
                     bpm: bpm ? bpm : null,
                     energyLevel: energyLevel ? energyLevel : null
                 }
