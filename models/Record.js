@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
 const Record = new mongoose.Schema({
     discogsId: {
@@ -41,13 +41,16 @@ const Record = new mongoose.Schema({
     tracks: [
         {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'Track'
+            ref: "Track"
         }
     ],
     discogsCollection: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'DiscogsCollection'
+        ref: "DiscogsCollection"
+    },
+    note: {
+        type: String
     }
 });
 
-module.exports = mongoose.model('Record', Record);
+module.exports = mongoose.model("Record", Record);

@@ -1,5 +1,84 @@
+$main: #647591;
+
+.key-1A {
+    background-color: #96ecd1;
+}
+.key-1B {
+    background-color: #69e365;
+}
+.key-2A {
+    background-color: #abeea8;
+}
+.key-2B {
+    background-color: #78ea8c;
+}
+.key-3A {
+    background-color: #c1f093;
+}
+.key-3B {
+    background-color: #a1ce68;
+}
+.key-4A {
+    background-color: #e4e2ae;
+}
+.key-4B {
+    background-color: #dc7a7e;
+}
+.key-5A {
+    background-color: #f6b8c0;
+}
+.key-5B {
+    background-color: #eb9f7f;
+}
+.key-6A {
+    background-color: #f4b4be;
+}
+.key-6B {
+    background-color: #f08e96;
+}
+.key-7A {
+    background-color: #f4b4cf;
+}
+.key-7B {
+    background-color: #ef89b3;
+}
+.key-8A {
+    background-color: #e6b5eb;
+}
+.key-8B {
+    background-color: #e089d6;
+}
+.key-9A {
+    background-color: #ddb8f9;
+}
+.key-9B {
+    background-color: #c494f8;
+}
+.key-10A {
+    background-color: #c7d2fb;
+}
+.key-10B {
+    background-color: #a3b8f9;
+}
+.key-11A {
+    background-color: #b1e5fc;
+}
+.key-11B {
+    background-color: #7bd7f5;
+}
+.key-12A {
+    background-color: #87eced;
+}
+.key-12B {
+    background-color: #6ae8e9;
+}
+
 * {
-    font-family: "Crimson Text", sans-serif;
+    font-family: "Poppins", sans-serif;
+}
+body {
+    background-color: #adadad;
+    color: #fff;
 }
 .index-link {
     color: #000;
@@ -14,30 +93,103 @@
 }
 
 .record {
-    width: calc(100% / 5);
-    height: auto;
-    // overflow: scroll;
-    // margin: 20px;
-    // border: 1px solid #000;
-    // border-radius: 10px;
-    // padding: 10px;
-    // height: 250px;
-}
+    width: calc(100% / 5 - 5px * 2);
+    margin: 5px;
 
-.record-top {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: flex-start;
-    margin-bottom: 10px;
-}
-.record-image {
-    width: 70px;
-    height: 70px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    margin-right: 10px;
-}
+    background-color: #969696;
 
-.track {
-    margin-bottom: 10px;
+    .record-top {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+        // margin-bottom: 10px;
+        height: 100px;
+
+        .left {
+        }
+
+        .right {
+            text-align: right;
+            flex: 1;
+            padding-right: 12px;
+
+            h4 {
+                font-weight: 900;
+                margin-top: 12px;
+                margin-bottom: 6px;
+            }
+
+            h5 {
+                margin: 0px;
+            }
+        }
+    }
+    .record-image {
+        width: 100px;
+        height: 100%;
+        background-size: contain;
+        background-repeat: no-repeat;
+        margin-right: 10px;
+    }
+    ul {
+        padding: 0px 8px;
+        background-color: #7c7c7c;
+        overflow: hidden;
+        overflow-y: scroll;
+        max-height: 350px;
+        margin-bottom: 0px;
+        li:nth-child(odd) {
+            background-color: #3e5993;
+
+            .track-key {
+                background-color: darken(#3e5993, 10%);
+            }
+        }
+        li:nth-child(even) {
+            background-color: #516aa0;
+
+            .track-key {
+                background-color: darken(#3e5993, 10%);
+            }
+        }
+    }
+    .track {
+        list-style-type: none;
+        // margin-bottom: 10px;
+        padding: 10px 10px;
+        display: flex;
+        flex-flow: column nowrap;
+
+        .track-meta {
+            width: 100%;
+            padding: 5px 0px;
+
+            &.track-key {
+                display: flex;
+                justify-content: space-evenly;
+                flex-flow: row nowrap;
+                font-size: 0.9em;
+                font-weight: 100;
+                text-align: center;
+                padding: 0px;
+
+                div {
+                    padding: 10px 0px;
+                    width: calc(100% / 3);
+                }
+                span {
+                    padding: 0px 3px;
+                }
+                // .key {
+                //     justify-self: flex-start;
+                // }
+                // .duration {
+                //     justify-self: center;
+                // }
+                // .bpm {
+                //     justify-self: flex-end;
+                // }
+            }
+        }
+    }
 }

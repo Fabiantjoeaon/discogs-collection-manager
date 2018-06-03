@@ -9,25 +9,42 @@ block content
         each record in records 
             .record
                 .record-top
-                    .record-image(style=`background-image:url("${record.image}");`)
-                    h5!= `${record.artists[0]} - ${record.title}`
-                    a(href=`/record/${record._id}/edit`) EDIT
+                    .left 
+                        .record-image(style=`background-image:url("${record.image}");`)
+                    .right
+                        h4!=record.artists[0]
+                        h5!=record.title
+                        .actions
+                            a(href=`/record/${record._id}/edit`) EDIT
+                        
                 .record-tracks
-                    each track in record.tracks 
-                        .track
-                            .track-meta
-                                strong!=`${track.position} `
-                                span!=`${track.title} `
-                            
-                            .track-meta(style=track.key ? "background-color: papayawhip;" : null)
-                                if (track.key) 
-                                    span!=`${track.key} (${getKey(track.key)}) `
-                                if (track.bpm) 
-                                    span!=`${track.bpm} `
-                                if (track.duration)
-                                    span!=`${track.duration}`
-                                if (track.energyLevel) 
-                                    span!=`${track.energyLevel} `
+                    ul
+                        each track in record.tracks 
+                            li.track
+                                .track-meta
+                                    strong!=`${track.position} &nbsp;`
+                                    span!=`${track.title} `
+
+                                    //- .actions 
+                                    //-     a() +
+                                
+                                .track-meta.track-key(class=track.key ? "haskey" : null)
+                                    .key(class=track.key ? `key-${track.key}`: null)
+                                        if (track.key) 
+                                            span!=`${track.key} (${getKey(track.key)}) `
+                                        else 
+                                            span(style="color: red;") NO KEY
+                                    .bpm
+                                        if (track.bpm) 
+                                            span.bpm!=`${track.bpm} `
+                                    .duration
+                                        if (track.duration)
+                                            span.duration!=`${track.duration}`
+                                .track-meta.track-own
+                                    if(track.energyLevel)
+                                        span.energylevel!=`${track.energyLevel} `
+                                    if(track.note)
+                                        span.note!=`${track.note}`
                                 
                
         
